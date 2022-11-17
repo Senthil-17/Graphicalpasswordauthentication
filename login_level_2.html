@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>IMAGE BASED PASSWORD AUTHENTICATION</title>
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+
+        .login {
+          width: 360px;
+          padding: 8% 0 0;
+          margin: auto;
+          font-family: 'Comfortaa', cursive;
+        }
+
+        .form {
+          position: relative;
+          z-index: 1;
+          background: #FFFFFF;
+          border-radius: 10px;
+          max-width: 360px;
+          margin: 0 auto 100px;
+          padding: 45px;
+          text-align: center;
+        }
+
+        .form input {
+          outline: 0;
+          background: #f2f2f2;
+          width: 100%;
+          border: 0;
+          border-radius: 5px;
+          margin: 0 0 15px;
+          padding: 15px;
+          box-sizing: border-box;
+          font-size: 14px;
+          font-family: 'Comfortaa', cursive;
+        }
+
+        .form input:focus {
+          background: #dbdbdb;
+        }
+
+        .form button {
+          font-family: 'Comfortaa', cursive;
+          text-transform: uppercase;
+          outline: 0;
+          background: #4b6cb7;
+          width: 100%;
+          border: 0;
+          border-radius: 5px;
+          padding: 15px;
+          color: #FFFFFF;
+          font-size: 14px;
+          -webkit-transition: all 0.3 ease;
+          transition: all 0.3 ease;
+          cursor: pointer;
+        }
+
+        .form button:active {
+          background: #395591;
+        }
+
+        .form span {
+          font-size: 75px;
+          color: #4b6cb7;
+        }
+      #container{
+          text-align: center;
+          margin-top: 50px;
+      }
+    </style>
+    <script>
+      function createPattern(val){
+        console.log(val);
+        if (document.getElementById("my_field").value.length < 9)
+        {
+          document.getElementById("my_field").value += val;
+        }
+      }
+      function checkMyField(){
+      if(document.getElementById("my_field").value ==0 || 
+        document.getElementById("my_field").value.length <9)
+        {
+          alert("Please Select Color Pattern from 3 given colors.")
+        }
+      }
+      </script>
+  </head>
+<body style="background-image: url('https://clipground.com/images/cyber-security-clipart-16.jpg'); background-repeat: no-repeat;
+  ">
+  <h1 style="text-align: center; margin-top: 10px;">IMAGE BASED PASSWORD AUTHENTICATION</h1>
+  <h5 style="text-align: center; margin-top: 20px;">Level Two<br>
+Please click on the colors below in the order you picked during login.</h5>
+
+  <div id="container">
+      <button style="background-color: #FF0000; border-radius: 50%; height: 100px; width: 100px; border: 3px solid white;" value="RRR" onclick="createPattern(this.value)"></button>
+      <button style="background-color: #00FF00; border-radius: 50%; height: 100px; width: 100px; border: 3px solid white;" value="GGG" onclick="createPattern(this.value)"></button>
+      <button style="background-color: #0000FF; border-radius: 50%; height: 100px; width: 100px; border: 3px solid white;" value="BBB" onclick="createPattern(this.value)"></button>
+
+      <button style="background-color: #f508ae; border-radius: 50%; height: 100px; width: 100px; border: 3px solid white;" value="PPP" onclick="createPattern(this.value)"></button>
+      <button style="background-color: #FFFFFF; border-radius: 50%; height: 100px; width: 100px; border: 3px solid white;" value="FFF" onclick="createPattern(this.value)"></button>
+      <button style="background-color: #000000; border-radius: 50%; height: 100px; width: 100px; border: 3px solid white;" value="KKK" onclick="createPattern(this.value)"></button>
+ </div>
+ <br>
+ <div class="login">
+  <div class="form">
+    <form class="login-form" method="POST">
+      {% csrf_token %}
+      <input name="my_field" id="my_field" type="password" placeholder="RGB"/>
+      <button type="submit" onclick="checkMyField()">Next</button><br><br>
+      <button type="submit" name="reset">Reset</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

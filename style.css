@@ -1,0 +1,24 @@
+* {
+margin:0;
+padding:0;
+list-style:none
+}
+#ul1 {
+width:660px;
+position:relative;
+margin:10px auto;
+}
+#ul1 li {
+width:200px;
+height:150px;
+float:left;
+list-style:none;
+margin:10px;
+}
+#ul1 li:hover {
+border-color:#9a9fa4;
+box-shadow:0 0 6px 0 rgba(0,0,0,0.85);
+}
+#ul1 .active {
+border:1px dashed red;
+}
